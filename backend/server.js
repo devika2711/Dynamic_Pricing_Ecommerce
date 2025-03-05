@@ -18,10 +18,7 @@ mongoose.connect(process.env.MONGO_URI)
     .then(() => console.log("✅ MongoDB Connected"))
     .catch(err => console.log("❌ MongoDB Connection Error:", err));
 
-app.use(express.static(path.join(__dirname, '../frontend/build')));
-app.get('*', (req, res) => {
-    res.sendFile(path.join(__dirname, '../frontend/build', 'index.html'));
-});
+
 // Routes
 
 const { router: authRoutes, authMiddleware, adminMiddleware } = require("./routes/authRoutes");
